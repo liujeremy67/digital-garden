@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>digital garden</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Courier New", monospace;
+      background-color: #f2f0d5;
+      color: #2f2f2f;
+    }
+    header {
+      padding: 18px 24px 12px;
+      background-color: #c6ff00;
+      border-bottom: 4px dotted #4b3f72;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 26px;
+    }
+    .goal-note {
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      color: #403f3f;
+      display: inline-block;
+      padding: 0 2px;
+    }
+    .progress {
+      background: #333;
+      height: 22px;
+      position: relative;
+      border: 3px double #ffcf40;
+      overflow: visible;
+    }
+    .progress span.fill {
+      display: block;
+      background: repeating-linear-gradient(
+        45deg,
+        #00ffff,
+        #00ffff 6px,
+        #ff00ff 6px,
+        #ff00ff 12px
+      );
+      height: 100%;
+      width: 0.0000001%;
+      min-width: 2px;
+      box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.4);
+    }
+    .progress .current {
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: #ffffff;
+      text-shadow: 1px 1px 0 #000;
+      z-index: 2;
+    }
+    .progress .goal-marker {
+      position: absolute;
+      top: -12px;
+      right: -6px;
+      font-size: 10px;
+      background: #ff77aa;
+      padding: 2px 4px;
+      border: 1px dotted #2f2f2f;
+      transform: rotate(3deg);
+      box-shadow: 1px 1px 0 #333;
+      white-space: nowrap;
+    }
+    main {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .patch {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    section, .archive {
+      border: 3px dashed #522d80;
+      padding: 16px;
+      background: #ffe4b3;
+      box-shadow: 6px 6px 0 #522d80;
+    }
+    section h2 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #3b2a40;
+    }
+    section h3 {
+      margin-bottom: 6px;
+      font-size: 16px;
+      color: #205072;
+    }
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+    li + li {
+      margin-top: 6px;
+    }
+    footer {
+      padding: 18px 24px;
+      background: #d7dbd0;
+      border-top: 4px dotted #4b3f72;
+      font-size: 13px;
+    }
+    .archive {
+      background: #c8f4ff;
+      border-style: dotted;
+      position: relative;
+    }
+    .archive::before {
+      content: "other things to remember";
+      position: absolute;
+      top: -14px;
+      left: 6px;
+      font-size: 11px;
+      background: #f2f0d5;
+      padding: 2px 8px;
+      border: 2px solid #4b3f72;
+      box-shadow: 2px 2px 0 #4b3f72;
+    }
+    .note {
+      display: inline-block;
+      padding: 6px 10px;
+      background: #a0ffa0;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="clash-counter"></h1>
+    <div class="goal-note">goal net worth</div>
+    <div class="progress">
+      <span class="fill"></span>
+      <div class="current">$32.09</div>
+      <div class="goal-marker">$10000000000</div>
+    </div>
+  </header>
+  <main>
+    <div class="patch">
+      <section>
+        <h2>Favorites</h2>
+        <ul>
+          <li>Man's Search for Himself - Rollo May
+          </li>
+          <li>The Razor's Edge - Maugham
+          </li>
+          <li>Fallen Angels 1995
+          </li>
+          <li>The Sopranos •‿•
+        </ul>
+      </section>
+      <section>
+        <h2>Currently</h2>
+        <ul>
+          <li>Designing Data-Intensive Applications</li>
+          <li>Rust for Rustaceans</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Music</h2>
+        <ul>
+          <li>Songs About Leaving - Carissa's Wierd</li>
+          <li>Goodbye, Firefly - Faye Wong</li>
+          <li>Defenestration Song - Have a Nice Life</li>
+          <li>Perfect Day - Lou Reed</li>
+          <li>Reckoner - Radiohead</li>
+        </ul>
+      </section>
+    </div>
+    <section class="archive">
+      <h2>Archive</h2>
+      <h3>Tech</h3>
+      <ul>
+        <li>I'm working on it</li>
+      </ul>
+      <h3>Personal</h3>
+      <ul>
+          <li>Growth Mindset - Carol Dweck</li>
+          <li>Crime and Punishment</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <div class="note">Does a dog have Buddha-nature?</div>
+  </footer>
+  <script>
+    (function updateClashCounter() {
+      const headline = document.getElementById("clash-counter");
+      if (!headline) return;
+      const startDate = new Date("2025-10-28T00:00:00Z");
+      const now = new Date();
+      const diffMs = now - startDate;
+      const dayMs = 24 * 60 * 60 * 1000;
+      const days = diffMs > 0 ? Math.floor(diffMs / dayMs) : 0;
+      headline.textContent = `days since i've played clash royale: ${days}`;
+    })();
+  </script>
+</body>
+</html>
