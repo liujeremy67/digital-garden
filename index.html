@@ -8,8 +8,9 @@
       margin: 0;
       padding: 0;
       font-family: "Courier New", monospace;
-      background-color: #f2f0d5;
-      color: #2f2f2f;
+      background-color: #92eefa;
+      color: #000000;
+      text-transform: uppercase;
     }
     header {
       padding: 18px 24px 12px;
@@ -25,8 +26,7 @@
     .goal-note {
       font-size: 11px;
       letter-spacing: 1px;
-      text-transform: lowercase;
-      color: #403f3f;
+      color: #000000;
       display: inline-block;
       padding: 0 2px;
     }
@@ -42,9 +42,7 @@
       background: repeating-linear-gradient(
         45deg,
         #00ffff,
-        #00ffff 6px,
-        #ff00ff 6px,
-        #ff00ff 12px
+        #00ffff 6px
       );
       height: 100%;
       width: 0.0000001%;
@@ -66,7 +64,7 @@
       top: -12px;
       right: -6px;
       font-size: 10px;
-      background: #ff77aa;
+      background: #f942ff;
       padding: 2px 4px;
       border: 1px dotted #2f2f2f;
       transform: rotate(3deg);
@@ -93,12 +91,12 @@
     section h2 {
       margin-top: 0;
       font-size: 20px;
-      color: #3b2a40;
+      color: #000000;
     }
     section h3 {
       margin-bottom: 6px;
       font-size: 16px;
-      color: #205072;
+      color: #000000;
     }
     ul {
       padding-left: 20px;
@@ -109,12 +107,21 @@
     }
     footer {
       padding: 18px 24px;
-      background: #d7dbd0;
+      background: #ff2600;
       border-top: 4px dotted #4b3f72;
       font-size: 13px;
     }
+    .favorites {
+      background: #ffffff;
+    }
+    .currently {
+      background: #ffffff;
+    }
+    .music {
+      background: #fbff00;
+    }
     .archive {
-      background: #c8f4ff;
+      background: #ffffff;
       border-style: dotted;
       position: relative;
     }
@@ -124,16 +131,10 @@
       top: -14px;
       left: 6px;
       font-size: 11px;
-      background: #f2f0d5;
+      background: #f942ff;
       padding: 2px 8px;
       border: 2px solid #4b3f72;
       box-shadow: 2px 2px 0 #4b3f72;
-    }
-    .note {
-      display: inline-block;
-      padding: 6px 10px;
-      background: #a0ffa0;
-      border: 1px solid #333;
     }
   </style>
 </head>
@@ -149,7 +150,7 @@
   </header>
   <main>
     <div class="patch">
-      <section>
+      <section class="favorites">
         <h2>LOVE</h2>
         <ul>
           <li>Man's Search for Himself - Rollo May
@@ -161,14 +162,14 @@
           <li>The Sopranos
         </ul>
       </section>
-      <section>
+      <section class="currently">
         <h2>Currently</h2>
         <ul>
           <li>Designing Data-Intensive Applications</li>
           <li>Rust for Rustaceans</li>
         </ul>
       </section>
-      <section>
+      <section class="music">
         <h2>Music</h2>
         <ul>
           <li>Songs About Leaving - Carissa's Wierd</li>
