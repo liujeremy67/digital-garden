@@ -24,6 +24,9 @@
       margin: 0 0 8px;
       font-size: 26px;
     }
+    h1, h2, h3, .note-header {
+      letter-spacing: 2px;
+    }
     .goal-note {
       font-size: 11px;
       letter-spacing: 1px;
@@ -65,7 +68,7 @@
       top: -12px;
       right: -6px;
       font-size: 10px;
-      background: #f942ff;
+      background: #ff1717;
       padding: 2px 4px;
       border: 1px dotted #2f2f2f;
       transform: rotate(3deg);
@@ -110,7 +113,33 @@
       padding: 18px 24px;
       background: #552e14;
       border-top: 4px dotted #4b3f72;
-      font-size: 13px;
+      font-size: 16px;
+    }
+    footer .note,
+    footer .note-header,
+    footer .note-list li {
+      color: #ffffff;
+    }
+    footer .note {
+      font-size: 11px;
+    }
+    footer .note-header {
+      margin-top: 0;
+      font-size: 20px;
+      color: #ffffff;
+    }
+    footer .note-list {
+      padding-left: 20px;
+      margin: 0;
+    }
+    footer .note-list li + li {
+      margin-top: 4px;
+    }
+    .quote-footer {
+      padding: 18px 24px;
+      background: #000000;
+      border-top: 4px dotted #4b3f72;
+      color: #ffffff;
     }
     .favorites {
       background: #ffffff;
@@ -195,7 +224,15 @@
     </div>
   </header>
   <footer>
-    <div class="note">does a dog have buddha-nature?</div>
+    <div class="note-header">what i'm doing now</div>
+    <ul class="note-list">
+      <li>provenance</li>
+      <li>ledger</li>
+      <li>more on these later</li>
+    </ul>
+  </footer>
+  <footer class="quote-footer">
+    <div class="note">does a dog have buddha-nature? liujeremy67@gmail.com let me know</div>
   </footer>
   <script>
     (function updateClashCounter() {
